@@ -1,4 +1,8 @@
 package mypackage;
+/**
+ * @author Mehdi Lahrach , Rim Ourrak , Moad Monaji
+ * @version 1.0 17/10/2021
+ */
 
 public final class Professor {
 	/***

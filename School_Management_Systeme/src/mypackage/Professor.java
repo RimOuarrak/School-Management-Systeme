@@ -22,6 +22,14 @@ public final class Professor {
 	 */
 	private String image;
 	/***
+	 * Professor email
+	 */
+	private String email;
+	/***
+	 * Professor phone number
+	 */
+	private int phoneNbr;
+	/***
 	 * 
 	 * @return Professor id.
 	 */
@@ -77,8 +85,56 @@ public final class Professor {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+	/***
+	 * 
+	 * @return Professor email
+	 */
+	public String getEmail() {
+		return email;
+	}
+	/***
+	 * 
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	/***
+	 * 
+	 * @return phoneNbr
+	 */
+	public int getPhoneNbr() {
+		return phoneNbr;
+	}
+	/***
+	 * 
+	 * @param phoneNbr
+	 */
+	public void setPhoneNbr(int phoneNbr) {
+		this.phoneNbr = phoneNbr;
+	}
 	
 
+	/***
+	 * Professor constructor
+	 * @param idInput
+	 * @param nameInput
+	 * @param salaryInput
+	 * @param imageInput
+	 * @param emailInput
+	 * @param phoneNbrInput
+	 */
+	public Professor(final int idInput, final String nameInput,
+            final float salaryInput, final String imageInput,
+            final String emailInput, final int phoneNbrInput ) {
+		
+		
+		this.id = idInput;
+        this.name = nameInput;
+        this.salary = salaryInput;
+        this.image = imageInput;
+        this.email = emailInput;
+        this.phoneNbr = phoneNbrInput;
+	}
 	
 }

@@ -4,7 +4,7 @@ package mypackage;
 /***
  * a checker to check if an input is valid.
  * 
- * @author * @author Mehdi Lahrach , Rim Ourrak , Moad Monaji
+ * @author  Mehdi Lahrach , Rim Ourrak , Moad Monaji
  *
  */
 public final class InputChecker {

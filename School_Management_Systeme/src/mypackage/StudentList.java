@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+
+
+
 public final class StudentList {
 	
 		/**
@@ -158,5 +161,90 @@ public final class StudentList {
 	        //
 	        return newStudent;
 	    }
+	    /***
+	     * Private constructor.
+	     */
+	    private StudentList() {
+	    }
 
+	    /***
+	     * Initiate.
+	     */
+	    public static void init() {
+	        choice = 0;
+	        input = new Scanner(System.in);
+	        listStudent.clear();
+	    }
+
+	    /***
+	     * Edit list of students.
+	     */
+	    public static void editList() {
+	        
+	        // temporary data.
+	        String tempString = "";
+	        int studentID = 0;
+
+	        // get right input from user
+	        while (true) {
+	            System.out.print("(?) Student ID: ");
+	            tempString = input.nextLine();
+
+	            if (InputChecker.isInteger(tempString)) {
+	                studentID = Integer.parseInt(tempString);
+	                break;
+	            }
+
+	            System.out.println("(!) Invalid input data");
+	        }
+
+	        // check and solve
+	        if (isIDExisted(studentID)) {
+	            listStudent.add(createStudent(false));
+	            System.out.println("(i) Add successful");
+	        } else {
+	            System.out.println("(i) Student ID does not exist");
+	        }
+	    }
+
+	    /***
+	     * Add 1 student to list.
+	     */
+	    public static void addList() {
+	        Student newStudent = createStudent(true);
+
+	        listStudent.add(newStudent);
+
+	        System.out.println("Add student successful");
+	    }
+	    /***
+	     * Delete 1 student.
+	     */
+	    public static void deleteList() {
+	        
+	        // 
+	        String tempString = "";
+	        int studentID = 0;
+
+	        // get right input from user
+	        while (true) {
+	            System.out.print("(?) Student ID: ");
+	            tempString = input.nextLine();
+
+	            if (InputChecker.isInteger(tempString)) {
+	                studentID = Integer.parseInt(tempString);
+	                break;
+	            }
+	            System.out.println("(!) Invalid input data");
+	        }
+
+	        // check and solve
+	        if (isIDExisted(studentID)) {
+	            listStudent.remove(studentID);
+	            System.out.println("(i) Delete successful");
+	        } else {
+	            System.out.println("(i) Student ID does not exist");
+	        }
+
+	    }
 }

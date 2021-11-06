@@ -9,7 +9,7 @@ public final class Student extends Personne {
     /***
      * Student score.
      */
-    private float score ;
+    private float score  ;
 
     
     /***

@@ -4,73 +4,24 @@ package mypackage;
  * @version 1.0 14/10/2021
  */
 
-public final class Student {
-	 /***
-     * Student id.
-     */
-    private int id;
-
-    /***
-     * Student name.
-     */
-    private String name;
-
+public final class Student extends Personne {
+	 
     /***
      * Student score.
      */
     private float score;
 
-    /***
-     * Student image.
-     */
-    private String image;
-
-    /***
-     * Student address.
-     */
-    private String address;
-
+    
     /***
      * Student description.
      */
     private String description;
-    /***
-     * Student phone number.
-     */
-    private int phoneNbr;
+    
     /***
      * Student attendance; 
      */
     private boolean attendance;
-    /**
-     * @return The id
-     */
-    public int getID() {
-        return id;
-    }
 
-    /**
-     * @param idInput
-     *            The id to set.
-     */
-    public void setID(final int idInput) {
-        this.id = idInput;
-    }
-
-    /**
-     * @return The name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param nameInput
-     *            The name to set.
-     */
-    public void setName(final String nameInput) {
-        this.name = nameInput;
-    }
 
     /**
      * @return The score
@@ -86,37 +37,7 @@ public final class Student {
     public void setScore(final float scoreInput) {
         this.score = scoreInput;
     }
-
-    /**
-     * @return The image
-     */
-    public String getImage() {
-        return image;
-    }
-
-    /**
-     * @param imageInput
-     *            The image to set.
-     */
-    public void setImage(final String imageInput) {
-        this.image = imageInput;
-    }
-
-    /**
-     * @return The address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param addressInput
-     *            The address to set.
-     */
-    public void setAddress(final String addressInput) {
-        this.address = addressInput;
-    }
-
+    
     /**
      * @return The description
      */
@@ -131,20 +52,8 @@ public final class Student {
     public void setDescription(final String descriptionInput) {
         this.description = descriptionInput;
     }
-    /***
-     * 
-     * @return Student phone number.
-     */
-	public int getPhonenbr() {
-		return phoneNbr;
-	}
-	/***
-	 * 
-	 * @param phoneNbr
-	 */
-	public void setPhonenbr(int phoneNbr) {
-		this.phoneNbr = phoneNbr;
-	}
+    
+	
 	/***
 	 * 
 	 * @return student attendance
@@ -178,25 +87,18 @@ public final class Student {
      * @param attendanceInput
      *            The attendance to set.
      */
-    public Student(final int idInput, final String nameInput,
+    public Student(final int idInput, final String nameInput,final String emailInput,
             final float scoreInput, final String imageInput,
             final String addressInput, final String descriptionInput, final int phoneNbrInput , final boolean attendanceInput) {
-        super();
-        this.id = idInput;
-        this.name = nameInput;
-        this.score = scoreInput;
-        this.image = imageInput;
-        this.address = addressInput;
+        super(idInput, nameInput, imageInput, emailInput, phoneNbrInput,addressInput);
+        this.score = scoreInput ;
         this.description = descriptionInput;
-        this.phoneNbr = phoneNbrInput;
         this.attendance = attendanceInput;
     }
 
    
     
-    public Student() {
-        super();
-    }
+    
 
     /*
      * (non-Javadoc)
@@ -208,22 +110,22 @@ public final class Student {
 
         StringBuilder sb = new StringBuilder();
         sb.append("     Student ID         :");
-        sb.append(id);
+        sb.append(getId());
         sb.append("\n");
         sb.append("     Student Name       :");
-        sb.append(name);
+        sb.append(getName());
         sb.append("\n");
         sb.append("     Student Score      :");
-        sb.append(score);
+        sb.append(getScore());
         sb.append("\n");
         sb.append("     Student Image      :");
-        sb.append(image);
+        sb.append(getImage());
         sb.append("\n");
         sb.append("     Student Address    :");
-        sb.append(address);
+        sb.append(getAddresse());
         sb.append("\n");
         sb.append("     Student Phone Number    :");
-        sb.append(phoneNbr);
+        sb.append(getPhoneNbr());
         sb.append("\n");
         sb.append("     Student Attendance		:");
         sb.append(attendance);
@@ -242,8 +144,8 @@ public final class Student {
      */
     public String toStringSaveFile() {
 
-        String result = id + "," + name + "," + score + "," + image + ","
-                + address + "," + description +","+ attendance;
+        String result = getId() + "," + getName() + "," + score + "," + getImage() + ","
+                + getAddresse() + "," + description +","+ attendance;
 
         return result;
     }

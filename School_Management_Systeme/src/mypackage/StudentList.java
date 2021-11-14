@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
-
-
 public final class StudentList {
 	
 		/**
@@ -127,7 +124,7 @@ public final class StudentList {
 	            System.out.print("Student address    : ");
 	            tempString = input.nextLine();
 	            if (tempString.length() != 0) {
-	                newStudent.setAddress(tempString);
+	                newStudent.setAdresse(tempString);
 	                break;
 	            } else {
 	                System.out.println("(!) Invalid input data");
@@ -140,6 +137,18 @@ public final class StudentList {
 	            tempString = input.nextLine();
 	            if (tempString.length() != 0) {
 	                newStudent.setDescription(tempString);
+	                break;
+	            } else {
+	                System.out.println("(!) Invalid input data");
+	            }
+	        }
+			
+	        // Email
+	        while (true) {
+	            System.out.print("Student Email: ");
+	            tempString = input.nextLine();
+	            if (tempString.length() != 0) {
+	                newStudent.setEmail(tempString);
 	                break;
 	            } else {
 	                System.out.println("(!) Invalid input data");

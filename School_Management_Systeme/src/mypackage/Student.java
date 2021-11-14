@@ -95,13 +95,11 @@ public final class Student extends Personne {
         this.description = descriptionInput;
         this.attendance = attendanceInput;
     }
-    public Student(){
+    
+
+    public Student() {
         super();
     }
-
-   
-    
-    
 
     /*
      * (non-Javadoc)
@@ -131,10 +129,10 @@ public final class Student extends Personne {
         sb.append(getPhoneNbr());
         sb.append("\n");
         sb.append("     Student Attendance		:");
-        sb.append(attendance);
+        sb.append(isAttendance());
         sb.append("\n");
         sb.append("     Student Description		:");
-        sb.append(description);
+        sb.append(getDescription());
         sb.append("\n");
 
         return sb.toString();
@@ -145,12 +143,10 @@ public final class Student extends Personne {
      * 
      * @return string
      */
+    
     public String toStringSaveFile() {
-
-        String result = getId() + "," + getName() + "," + score + "," + getImage() + ","
-                + getAddresse() + "," + description +","+ attendance;
-
-        return result;
+        
+        return super.toStringSaveFile()+ getScore() +","+ isAttendance()+ ","+getDescription();
     }
 
     public void setAddress(String tempString) {

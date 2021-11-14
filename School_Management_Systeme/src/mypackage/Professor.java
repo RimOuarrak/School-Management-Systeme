@@ -22,7 +22,9 @@ public final class Professor extends Personne {
 		public void setSalary(double salary) {
 			this.salary = salary;
 		}
-		
+		public Professor(){
+			super();
+		}
 		/***
 		 * Professor constructor
 		 * @param idInput
@@ -48,8 +50,6 @@ public final class Professor extends Personne {
 			pr.append("     Professor Name       :");
 			pr.append(getName());
 			pr.append("\n");
-		   
-			pr.append("\n");
 			pr.append("     Professor Image      :");
 			pr.append(getImage());
 			pr.append("\n");
@@ -59,9 +59,8 @@ public final class Professor extends Personne {
 			pr.append("     Professor Phone Number    :");
 			pr.append(getPhoneNbr());
 			pr.append("\n");
-			
-			pr.append("\n");
-			
+			pr.append("     Professor Salary     :");
+			pr.append(getSalary());
 			pr.append("\n");
 	
 			return pr.toString();
@@ -72,12 +71,10 @@ public final class Professor extends Personne {
 		 * 
 		 * @return string
 		 */
-		public String toStringSaveFile() {
-	
-			String result = getId() + "," + getName() + "," + getImage() + ","
-					+ getAddresse() + "," + salary ;
-	
-			return result;
+
+		@Override
+		public String toStringSaveFile(){
+			return super.toStringSaveFile()+ "," +getSalary();
 		}
 		
 	

@@ -116,6 +116,11 @@ public class Personne {
 	public void setAdresse(String Adresse) {
 		this.Adresse = Adresse;
 	}
+
+	public Personne(){
+
+	}
+
 	/***
 	 * Persone constructor
 	 * @param idInput
@@ -137,7 +142,13 @@ public class Personne {
         this.email = emailInput;
         this.phoneNbr = phoneNbrInput;
 	}
-    public Personne() {
-    }
-	
+
+	String toStringSaveFile(){
+		String result = getId() + "," + getName() + "," + getImage() + ","
+		+ getAddresse() + ","+ getEmail() + "," +getPhoneNbr() ;
+		return result;
+	}
+
+  
+
 }

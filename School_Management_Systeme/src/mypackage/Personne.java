@@ -137,5 +137,7 @@ public class Personne {
         this.email = emailInput;
         this.phoneNbr = phoneNbrInput;
 	}
+    public Personne() {
+    }
 	
 }

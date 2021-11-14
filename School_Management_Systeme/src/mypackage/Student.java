@@ -95,6 +95,9 @@ public final class Student extends Personne {
         this.description = descriptionInput;
         this.attendance = attendanceInput;
     }
+    public Student(){
+        super();
+    }
 
    
     
@@ -148,6 +151,9 @@ public final class Student extends Personne {
                 + getAddresse() + "," + description +","+ attendance;
 
         return result;
+    }
+
+    public void setAddress(String tempString) {
     }
 
 	

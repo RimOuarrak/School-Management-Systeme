@@ -43,7 +43,7 @@ public final class StudentList {
 	    public static boolean isIDExisted(final int id) {
 	        //
 	        for (Student student : listStudent) {
-	            if (student.getID() == id) {
+	            if (student.getId() == id) {
 	                return true;
 	            }
 	        }
@@ -75,7 +75,7 @@ public final class StudentList {
 	                    if (isIDExisted(id)) {
 	                        System.out.println("(!) This ID already existed");
 	                    } else {
-	                        newStudent.setID(id);
+	                        newStudent.setId(id);
 	                        break;
 	                    }
 	                } else {
@@ -151,7 +151,7 @@ public final class StudentList {
 	            System.out.print("Student phone number      : ");
 	            tempString = input.nextLine();
 	            if (InputChecker.isInteger(tempString)) {
-	                newStudent.setPhonenbr(Integer.parseInt(tempString));
+	                newStudent.setPhoneNbr(Integer.parseInt(tempString));
 	                break;
 	            } else {
 	                System.out.println("(!) Invalid input data");

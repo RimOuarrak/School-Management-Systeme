@@ -1,6 +1,11 @@
 package mypackage;
 
-/**
+/***
+ * @author  Mehdi Lahrach , Rim Ourrak , Moad Monaji
+ *
+ */
+
+ /**
  * Personne
  */
 public class Personne {

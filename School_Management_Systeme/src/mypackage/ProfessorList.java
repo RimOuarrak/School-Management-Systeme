@@ -227,4 +227,17 @@ public class ProfessorList {
 	        }
 
 	    }
+	/***
+     * show list of students.
+     */
+    public static void showList() {
+
+        int size = professors.size();
+
+        for (int i = 0; i < size; i++) {
+            System.out.println("Student No." + (i + 1));
+            System.out.println(professors.get(i).toString());
+        }
+    }
+
 }

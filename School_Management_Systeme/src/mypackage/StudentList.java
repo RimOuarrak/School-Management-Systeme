@@ -256,4 +256,18 @@ public final class StudentList {
 	        }
 
 	    }
+
+
+	/***
+     * show list of students.
+     */
+    public static void showList() {
+
+        int size = listStudent.size();
+
+        for (int i = 0; i < size; i++) {
+            System.out.println("Student No." + (i + 1));
+            System.out.println(listStudent.get(i).toString());
+        }
+    }
 }

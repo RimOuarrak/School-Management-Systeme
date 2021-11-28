@@ -8,7 +8,7 @@ package mypackage;
  /**
  * Personne
  */
-public class Personne {
+public abstract class Personne {
 
     /***
 	 * Persone id.

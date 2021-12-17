@@ -134,7 +134,7 @@ public class ProfessorList {
 	            System.out.print("Professor phone number      : ");
 	            tempString = input.nextLine();
 	            if (InputChecker.isInteger(tempString)) {
-	                newProfessor.setPhoneNbr(Integer.parseInt(tempString));
+	                newProfessor.setPhoneNbr(tempString);
 	                break;
 	            } else {
 	                System.out.println("(!) Invalid input data");

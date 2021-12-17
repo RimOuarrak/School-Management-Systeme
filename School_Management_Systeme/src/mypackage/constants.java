@@ -1,18 +1,19 @@
 package mypackage;
 
-public final class constants {
+public final class Constants {
 
     /***
      * Constructor.
+     * @return 
      */
-    private constants() {
+    private  Constants(){
 
     }
 
     /***
      * Number of field for each student.
      */
-    public static final int NUMBER_OF_FIELD = 6;
+    public static final int NUMBER_OF_FIELD = 8;
 
     /***
      * The position of the student's ID in the string.
@@ -45,6 +46,17 @@ public final class constants {
     public static final int NOTE_POS = 5;
 
     /***
+     * The position of the student's phone number in the string.
+     */
+    public static final int PHONE_POS = 6;
+
+    /***
+     * The position of the student's email in the string.
+     */
+    public static final int EMAIL_POS = 7;
+    
+
+    /***
      * Function NO.
      */
     public static final int ADD_STUDENT_FUNCTION = 1;
@@ -72,17 +84,12 @@ public final class constants {
     /***
      * Function NO.
      */
-    public static final int IMPORT_STUDENT_FUNCTION = 6;
+    public static final int EXPORT_STUDENT_FUNCTION = 6;
 
     /***
      * Function NO.
      */
-    public static final int EXPORT_STUDENT_FUNCTION = 7;
-
-    /***
-     * Function NO.
-     */
-    public static final int EXIT_FUNCTION = 8;
+    public static final int EXIT_FUNCTION = 7;
 
     /***
      * Function sort NO.
@@ -103,4 +110,10 @@ public final class constants {
      * Function sort NO.
      */
     public static final int SORT_DE_POINT_FUNCTION = 4;
+    
+    /***
+     * CSV export file header.
+     */
+    public static final String CSV_FILE_HEADER = "id,Name"
+    +"image,Adress,email,phone number,score,description";
 }

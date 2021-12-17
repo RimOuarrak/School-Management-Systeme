@@ -20,7 +20,7 @@ public final class Student extends Personne {
     /***
      * Student attendance; 
      */
-    private boolean attendance;
+    private String attendance;
 
 
     /**
@@ -58,14 +58,14 @@ public final class Student extends Personne {
 	 * 
 	 * @return student attendance
 	 */
-	public boolean isAttendance() {
+	public String isAttendance() {
 		return attendance;
 	}
 	/***
 	 * 
 	 * @param attendance
 	 */
-	public void setAttendance(boolean attendance) {
+	public void setAttendance(String attendance) {
 		this.attendance = attendance;
 	}
 
@@ -84,16 +84,13 @@ public final class Student extends Personne {
      *            The description to set.
      * @param phoneNbrInput
      *            The phone number to set.
-     * @param attendanceInput
-     *            The attendance to set.
      */
     public Student(final int idInput, final String nameInput,final String emailInput,
             final float scoreInput, final String imageInput,
-            final String addressInput, final String descriptionInput, final int phoneNbrInput , final boolean attendanceInput) {
+            final String addressInput, final String descriptionInput, final String phoneNbrInput) {
         super(idInput, nameInput, imageInput, emailInput, phoneNbrInput,addressInput);
         this.score = scoreInput ;
         this.description = descriptionInput;
-        this.attendance = attendanceInput;
     }
     
 
@@ -128,8 +125,8 @@ public final class Student extends Personne {
         sb.append("     Student Phone Number    :");
         sb.append(getPhoneNbr());
         sb.append("\n");
-        sb.append("     Student Attendance		:");
-        sb.append(isAttendance());
+        sb.append("     Student Phone email    :");
+        sb.append(getEmail());
         sb.append("\n");
         sb.append("     Student Description		:");
         sb.append(getDescription());
@@ -146,11 +143,10 @@ public final class Student extends Personne {
     
     public String toStringSaveFile() {
         
-        return super.toStringSaveFile()+ getScore() +","+ isAttendance()+ ","+getDescription();
+        return super.toStringSaveFile()+","+ getScore() +","+getDescription();
     }
 
-    public void setAddress(String tempString) {
-    }
+    
 
 	
 

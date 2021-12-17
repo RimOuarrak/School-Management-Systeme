@@ -36,7 +36,7 @@ public final class Professor extends Personne {
 		 */
 		public Professor(final int idInput, final String nameInput,
 				final float salaryInput, final String imageInput,
-				final String emailInput, final int phoneNbrInput,final String adresseInput ) {
+				final String emailInput, final String phoneNbrInput,final String adresseInput ) {
 			super(idInput, nameInput, imageInput, emailInput, phoneNbrInput, adresseInput);
 			this.salary=salaryInput;
 		}

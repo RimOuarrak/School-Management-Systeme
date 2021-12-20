@@ -34,7 +34,7 @@ public abstract class Personne {
 	/***
 	 * Persone phone number
 	 */
-	private int phoneNbr;
+	private String phoneNbr;
 	/***
 	 * 
 	 * @return Persone id.
@@ -96,15 +96,15 @@ public abstract class Personne {
 	 * 
 	 * @return phoneNbr
 	 */
-	public int getPhoneNbr() {
+	public String getPhoneNbr() {
 		return phoneNbr;
 	}
 	/***
 	 * 
-	 * @param phoneNbr
+	 * @param string
 	 */
-	public void setPhoneNbr(int phoneNbr) {
-		this.phoneNbr = phoneNbr;
+	public void setPhoneNbr(String string) {
+		this.phoneNbr = string;
 	}
 	
 /***
@@ -137,7 +137,7 @@ public abstract class Personne {
 	 */
 	public Personne(final int idInput, final String nameInput,
              final String imageInput,
-            final String emailInput, final int phoneNbrInput,final String adresseInput ) {
+            final String emailInput, final String phoneNbrInput,final String adresseInput ) {
 		
 		
 		this.id = idInput;

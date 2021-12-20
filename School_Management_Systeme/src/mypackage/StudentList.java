@@ -1,6 +1,7 @@
 package mypackage;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -47,7 +48,24 @@ public final class StudentList {
 
 	        return false;
 	    }
-	
+
+		/***
+	     * get the student by his id.
+	     * 
+	     * @param id
+	     *            ID to check.
+	     * @return the student that has the id
+	     */
+		public static Student getStudentById(int id ) {
+    	
+			for (Student student : listStudent) {
+				if (student.getId() == id) {
+					return student;
+				}
+			}
+			return null;
+		}
+
 	    /***
 	     * Add 1 student.
 	     * 
@@ -160,7 +178,7 @@ public final class StudentList {
 	            System.out.print("Student phone number      : ");
 	            tempString = input.nextLine();
 	            if (InputChecker.isInteger(tempString)) {
-	                newStudent.setPhoneNbr(Integer.parseInt(tempString));
+	                newStudent.setPhoneNbr(tempString);
 	                break;
 	            } else {
 	                System.out.println("(!) Invalid input data");
@@ -249,7 +267,7 @@ public final class StudentList {
 
 	        // check and solve
 	        if (isIDExisted(studentID)) {
-	            listStudent.remove(studentID);
+	            listStudent.remove(getStudentById(studentID));
 	            System.out.println("(i) Delete successful");
 	        } else {
 	            System.out.println("(i) Student ID does not exist");
@@ -271,12 +289,127 @@ public final class StudentList {
         }
     }
 
-    public static void exportList(String string) {
+    /***
+     * Export list of students.
+     * 
+     * @param fileType
+     *            Type of file (text or binary).
+     */
+    public static void exportList(final String fileType) {
+
+        // 
+        String path = "";
+
+        // get right input from user.
+        while (true) {
+            System.out.print("(?) Enter the file path: ");
+            path = input.nextLine();
+            if (path.length() != 0) {
+                break;
+            } else {
+                System.out.println("(!) Invalid input data");
+            }
+        }
+
+        // solve
+        if (fileType == "text") {
+            if (FileFactory.writeFile(listStudent, path)) {
+                System.out.println("(i) Save successful");
+            } else {
+                System.out.println("(i) Save failed");
+            }
+        } else {
+            if (FileFactory.writeFileBinary(listStudent, path)) {
+                System.out.println("(i) Save successful");
+            } else {
+                System.out.println("(i) Save failed");
+            }
+        }
+
     }
 
     public static void sortList() {
+		
+        System.out.println("#" + Constants.SORT_IN_CODE_FUNCTION
+                + ". Sort ascending by student ID.");
+        System.out.println("#" + Constants.SORT_DE_CODE_FUNCTION
+                + ". Sort descending by student ID.");
+        System.out.println("#" + Constants.SORT_IN_POINT_FUNCTION
+                + ". Sort ascending by student score.");
+        System.out.println("#" + Constants.SORT_DE_POINT_FUNCTION
+                + ". Sort descending by student score.");
+
+        // get right input from user
+        while (true) {
+            try {
+                System.out.print("Your choice : ");
+                choice = input.nextInt();
+                input.nextLine();
+
+                break;
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                System.out.println("Invalid input data");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Please enter data");
+            }
+        }
+
+        // solve
+        switch (choice) {
+        case Constants.SORT_IN_CODE_FUNCTION:
+            SortStudentList.sortIDIncrease(listStudent);
+            System.out.println("Sort success");
+            break;
+        case Constants.SORT_DE_CODE_FUNCTION:
+            SortStudentList.sortIDDecrease(listStudent);
+            System.out.println("Sort success");
+            break;
+        case Constants.SORT_IN_POINT_FUNCTION:
+            SortStudentList.sortScoreIncrease(listStudent);
+            System.out.println("Sort success");
+            break;
+        case Constants.SORT_DE_POINT_FUNCTION:
+            SortStudentList.sortScoreDecrease(listStudent);
+            System.out.println("Sort success");
+            break;
+        default:
+            System.out.println("Invalid choice");
+            break;
+        }
     }
 
-    public static void importList(String string) {
+    public static void importList(final String fileType) {
+		 // 
+		 String path = "";
+        
+		 // get right input
+		 while (true) {
+			 System.out.print("(?) Enter the file path: ");
+			 path = input.nextLine();
+			 if (path.length() != 0) {
+				 break;
+			 } else {
+				 System.out.println("(!) Invalid input data");
+			 }
+		 }
+ 
+		 // renew
+		 listStudent.clear();
+ 
+		 // 
+		 if (fileType == "text") {
+			 listStudent = FileFactory.readFile(path);
+		 } else {
+			 listStudent = FileFactory.readFileBinary(path);
+		 }
+ 
+		 // 
+		 if (listStudent.size() == 0) {
+			 System.out.println("(!) ERROR. " + "The list is currently empty");
+		 } else {
+			 System.out.println("(i) Import successful");
+		 }
     }
+
 }
